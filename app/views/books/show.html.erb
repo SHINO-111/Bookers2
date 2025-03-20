@@ -1,0 +1,39 @@
+<div class="container px-5 pt-3 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/user_info_and_new_book' %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <% if @book_show.user.profile_image.attached? %>
+                <%= link_to user_path(@book_show.user.id) do %>
+                  <%= image_tag @book_show.user.profile_image, size: "100x100" %>
+                <% end %>
+              <% else %>
+                <%= link_to user_path(@book_show.user.id) do %>
+                  <%= image_tag 'default-image.jpg', size: "100x100" %>
+                <% end %>
+              <% end %>
+
+             
+
+              <br>
+              <%= link_to @book_show.user.name, user_path(@book_show.user.id) %>
+            </td>
+            <td><%= link_to @book_show.title, book_path(@book_show.id) %></td>
+            <td><%= @book_show.body %></td>
+            <% if @book_show.user == current_user %>
+              <td><%= link_to "Edit", edit_book_path(@book_show.id), class: "btn btn-success btn-sm" %></td>
+              <td><%= link_to "Destroy", book_path(@book_show.id), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

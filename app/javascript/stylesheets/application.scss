@@ -1,0 +1,10 @@
+@use '~bootstrap/scss/bootstrap';
+
+.header_back{
+  background-color:#343a40;
+
+}
+
+.table tbody tr {
+  border-top: 1px solid #ccc; /* 行ごとに灰色の横線 */
+}
