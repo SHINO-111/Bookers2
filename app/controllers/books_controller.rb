@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     @book = Book.new 
     @book_show = Book.find(params[:id])  # まず、表示する本を取得
     @user = @book_show.user  # 本の持ち主を取得
+    @book_comment = BookComment.new
     
   end
 
